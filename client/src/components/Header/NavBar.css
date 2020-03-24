@@ -1,55 +1,28 @@
-.header {
-    background: #000000;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    height: 230px;
-    padding: 1%;
+.navbar-light .navbar-nav .nav-link {
+    color: white; 
+    padding-right: 2em; 
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: white; 
 }
 
-.title{
-    position: relative;
-    
-    height: 42px;
-    left: calc(50% - 516px/2 - 368px);
-    top: 100px;
-
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 42px;
-
-    color: #FFFFFF;
+.navbar-light .navbar-nav .nav-link:focus {
+    color: white; 
 }
 
-.nav-logo {
-    
-    height: 50px;
-    width: 50px;
-    padding: 10%;
+
+.bg-dark {
+    background-color: #1d428a !important; 
 }
 
-.nav-logo:hover {
-
+.navbar-light .navbar-nav .active>.nav-link {
+    color: white; 
 }
 
-.nav-items {
-    display:flex;
-    margin-left: auto;
-    margin-right: 5%;
-    align-items: center;
+.navbar-light .navbar-brand {
+    color: white; 
 }
 
-.nav-link {
-    background-color: #d39309;
-    color: black;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
+.navbar-light .navbar-brand:hover {
+    color: white; 
 }
-
-.nav-link:hover {
-    background-color: #feffff;
-}
-

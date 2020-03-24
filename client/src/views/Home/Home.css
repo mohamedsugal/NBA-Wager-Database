@@ -5,7 +5,7 @@ body {
 
 .App {
     text-align: center;
-    background: #282c34;
+    background: #ffffff !important;
 }
 
 .App-logo {
@@ -13,7 +13,7 @@ body {
 }
 
 .App-header {
-    background-color: #282c34;
+    background-color: #fff !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -28,12 +28,21 @@ body {
 }
 
 .jumbo {
-    height: 500px;
+    height: 600px;
     justify-content: center;
 }
 
-.jumbotext
-{
-    
+.jumbotext {
+    margin-top: 150px;
     color: white;
+    text-align: left;
+}
+
+.jumbotext .row p {
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.btn-primary {
+    border-radius: 0;
 }

@@ -1,0 +1,9 @@
+.footer-bottom span {
+    font-weight: 200;
+}
+
+.footer-bottom span a {
+    color: #fff; 
+    text-decoration: underline;
+}
+

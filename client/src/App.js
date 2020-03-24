@@ -5,6 +5,7 @@ import Dvis from "./views/Data Visualization/Home"
 import Comptool from "./views/Comparison Tool/Home"
 import NotFound from "./views/NotFound";
 import NavBar from "./components/Header/NavBar";
+import Footer from "./components/Header/Footer"
 
 const App = () => {
   return (
@@ -19,7 +20,9 @@ const App = () => {
         </Route>
         <Route component={NotFound}/>
       </Switch>
+      <Footer/>
     </div>
+  
   );
 }
 
