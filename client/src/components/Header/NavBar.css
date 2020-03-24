@@ -42,7 +42,7 @@
 }
 
 .nav-link {
-    background-color: #09d3ac;
+    background-color: #d39309;
     color: black;
     padding: 14px 25px;
     text-align: center;
@@ -50,6 +50,6 @@
 }
 
 .nav-link:hover {
-    background-color: #08bd9a;
+    background-color: #feffff;
 }
 

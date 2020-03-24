@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
 }
@@ -24,4 +25,15 @@ body {
 
 .App-link {
     color: #09d3ac;
+}
+
+.jumbo {
+    height: 500px;
+    justify-content: center;
+}
+
+.jumbotext
+{
+    
+    color: white;
 }
