@@ -14,7 +14,7 @@ body {
 
 .App-header {
     background-color: #fff !important;
-    min-height: 100vh;
+    min-height: 10vh !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,3 +46,49 @@ body {
 .btn-primary {
     border-radius: 0;
 }
+
+.jumbotext h1 {
+    font-weight: 700;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# visualization Us
+--------------------------------------------------------------*/
+
+#visualization {
+    margin-top: 90px; 
+}
+
+.visualization .info-box {
+    
+    text-align: left; 
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+    padding: 30px 50px 40px 40px;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  
+
+  
+  .visualization .info-box h3 {
+    font-size: 20px;
+    color: #1d428a;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+  
+  /* .visualization .info-box p {
+    padding: 0;
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+  } */
+
+  .visIcon {
+      width: 45px;
+      margin-right: 0.3em; 
+  }
+

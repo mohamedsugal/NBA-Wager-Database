@@ -13,6 +13,7 @@
 
 .bg-dark {
     background-color: #1d428a !important; 
+    padding: 15px; 
 }
 
 .navbar-light .navbar-nav .active>.nav-link {
@@ -21,8 +22,14 @@
 
 .navbar-light .navbar-brand {
     color: white; 
+    font-weight: 600;
 }
 
 .navbar-light .navbar-brand:hover {
     color: white; 
+}
+
+
+.navbar-nav {
+    font-weight: 600;
 }
