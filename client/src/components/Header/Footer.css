@@ -4,13 +4,12 @@
 
 .footer-middle .attribution a {
     color: #3396ff; 
-    text-decoration: underline;
 }
 
 .footer-middle h6 {
     text-transform: uppercase;
     font-weight: 700;
-    
+    text-decoration: underline;
 }
 
 .footer-middle ul a {
