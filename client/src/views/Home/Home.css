@@ -32,6 +32,12 @@ body {
     justify-content: center;
 }
 
+@media (max-width: 767px) {
+    .jumbotext {
+        margin-left: 1em; 
+    }  
+}
+
 .jumbotext {
     margin-top: 150px;
     color: white;

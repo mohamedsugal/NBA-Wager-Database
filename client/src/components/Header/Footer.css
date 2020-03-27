@@ -7,3 +7,20 @@
     text-decoration: underline;
 }
 
+.footer-middle h5 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.footer-middle ul a {
+    color: #fff; 
+    margin-left: -1em; 
+    margin-bottom: -10px;
+}
+
+.footer-middle ul {
+    margin-top: -10px;
+}
+.footer-bottom {
+    margin-top: 1em;
+}

@@ -3,6 +3,7 @@ import React from 'react';
 import './Footer.css';
 // import './App.css'
 import styled from 'styled-components'; 
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -11,12 +12,12 @@ const Footer = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 col-sm-6">
-                            <h4>Lorem ipsum</h4>
+                            <h5>Quick Menu</h5>
                             <ul className="list-unstyled">
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
-                                <li>Lorem ipsum</li>
+                                <Link className="nav-link" to="/Home"><li>> Home</li></Link>
+                                <Link className="nav-link" to="/Data Visualization"><li>> Data Visualization</li></Link>
+                                <Link className="nav-link" to="/Comparison Tool"><li>> Comparison Tool</li></Link>
+                                
                             </ul>
                         </div>
                     </div>
