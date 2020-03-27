@@ -45,9 +45,8 @@ const data = [
 function Dvi() {
     return (
         <div className="App">
-
-            <Container fluid >
-                <BarChart width={1500} height={250} data={data}>
+            <Container fluid className="table-graph">
+                <BarChart width={1100} height={350} data={data}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
@@ -58,7 +57,7 @@ function Dvi() {
                 </BarChart>
             </Container>  
 
-            <Container>
+            <Container className="table-data">
                 <Table responsive>
                     <thead>
                         <tr>

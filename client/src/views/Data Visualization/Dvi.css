@@ -25,3 +25,12 @@ body {
 .App-link {
     color: #09d3ac;
 }
+
+.table-graph {
+    margin-top: 5em; 
+    margin-bottom: 5em;
+}
+
+.table-data {
+    margin-bottom: 5em;
+}

@@ -4,7 +4,7 @@ body {
 
 .recharts-wrapper {
     margin: auto !important; 
-    margin-bottom: 3em !important;
+    margin-bottom: 5em !important;
     margin-top: 2em !important;
 }
 
@@ -13,8 +13,14 @@ body {
 }
 
 .comparison-table {
-    margin-bottom: 3em;
+    margin-bottom: 5em;
 }
 
-
+@media (max-width: 767px) {
+    .recharts-wrapper {
+        margin: auto !important; 
+        margin-bottom: 3em !important;
+        margin-top: 2em !important;
+    }
+}
 
