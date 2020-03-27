@@ -2,14 +2,15 @@
     font-weight: 200;
 }
 
-.footer-bottom span a {
-    color: #fff; 
+.footer-middle .attribution a {
+    color: #3396ff; 
     text-decoration: underline;
 }
 
-.footer-middle h5 {
+.footer-middle h6 {
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
+    
 }
 
 .footer-middle ul a {

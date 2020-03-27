@@ -34,7 +34,7 @@ function Home() {
             </p>
           </Row>
           <Row>
-            <Button>Start Here</Button>
+          <Button className="hero-btn">Start Here</Button>
           </Row>
         </Container>
       </Jumbotron>
@@ -50,6 +50,7 @@ function Home() {
                 <p>Complex visualizations that show a team or a player's performance over time. See which team
                   or player performed above or below average in a certain year.
                 </p>
+                <Button className="columns-btn">Click Here</Button>
               </div>
             </div>
 
@@ -60,6 +61,7 @@ function Home() {
                 <p>Compare players in terms of their physical ability, scoring, position, height, weight, agility, and 
                     many more. See how a player stacks against another player. 
                 </p>
+                <Button className="columns-btn">Click Here</Button>
               </div>
             </div>
 
@@ -70,6 +72,7 @@ function Home() {
                 <p>Compare two teams in terms of points per game, assists, rebounds, free throws, 3-points, field, goals, 
                   and many more. See the overall shooting performance of each team. 
                 </p>
+                <Button className="columns-btn">Click Here</Button>
               </div>
             </div>
 
@@ -80,6 +83,7 @@ function Home() {
                 <p>Don't bet on the wrong team and lose money. Compare bookie and see a visualization that predict which team could win the championship in a particular
                   year. 
                 </p>
+                <Button className="columns-btn">Click Here</Button>
               </div>
             </div>
 

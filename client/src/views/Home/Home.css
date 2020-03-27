@@ -65,36 +65,84 @@ body {
 --------------------------------------------------------------*/
 
 #visualization {
-    margin-top: 90px; 
+margin-top: 90px; 
 }
 
 .visualization .info-box {
-    
     text-align: left; 
     box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
     padding: 30px 50px 40px 40px;
     margin-bottom: 30px;
     width: 100%;
-  }
-  
+}
 
-  
-  .visualization .info-box h3 {
+.visualization .info-box h3 {
     font-size: 20px;
     color: #1d428a;
     font-weight: 700;
     margin: 10px 0;
-  }
-  
-  /* .visualization .info-box p {
-    padding: 0;
-    line-height: 24px;
+}
+
+.visIcon {
+    width: 45px;
+    margin-right: 0.3em; 
+}
+
+.columns-btn {
+    border-radius: 20px;
+    float: right; 
+    background-color: #1d428a;
+    border-color:#fff; 
+    border: 0; 
+    
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 5px 20px; 
+}
+
+.columns-btn:not(:disabled):not(.disabled):active {
+    background-color: #1d428a;
+    border: 0; 
+}
+
+.columns-btn:focus {
+    background-color: #1d428a;
+    border: 0; 
+    box-shadow: none;
+}
+
+.columns-btn:hover {
+    background-color: #285abd;
+    border: 0;
+}
+
+/*--------------- JUMBOTEXT BUTTON ---------------------*/
+.hero-btn {
+    
+    float: right; 
+    background-color: #007bff;
+    border-color:#fff; 
+    border: 0; 
     font-size: 14px;
-    margin-bottom: 0;
-  } */
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    padding: 10px 20px; 
+    font-weight: 600;
+}
 
-  .visIcon {
-      width: 45px;
-      margin-right: 0.3em; 
-  }
+.hero-btn:not(:disabled):not(.disabled):active {
+    background-color: #007bff;
+    border: 0; 
+}
 
+.hero-btn:focus {
+    background-color: #007bff;
+    border: 0; 
+    box-shadow: none;
+}
+
+.hero-btn:hover {
+    background-color: #0063cc;
+    border: 0;
+}
