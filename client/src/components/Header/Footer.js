@@ -23,14 +23,14 @@ const Footer = () => {
                         
                         <div className="col-md-6">
                             <h6>Attributions</h6>
-                            <p className="attribution">Photo by <a href="https://unsplash.com/@echaparro" target="_blank">Edgar Chaparro</a> on 
-                                <a href="https://unsplash.com/photos/kB5DnieBLtM" target="_blank"> Unsplash</a><br/>
-                                Icons made by <a href="https://www.flaticon.com/authors/nhor-phai" title="Nhor Phai" target="_blank">
-                                    Nhor Phai</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a><br/>
-                                Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik </a> 
-                                    from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a><br/>
-                                Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev" target="_blank">
-                                    Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a>
+                            <p className="attribution">Photo by <a href="https://unsplash.com/@echaparro" target="_blank" rel="noopener noreferrer">Edgar Chaparro</a> on 
+                                <a href="https://unsplash.com/photos/kB5DnieBLtM" target="_blank" rel="noopener noreferrer"> Unsplash</a><br/>
+                                Icons made by <a href="https://www.flaticon.com/authors/nhor-phai" title="Nhor Phai" target="_blank" rel="noopener noreferrer">
+                                    Nhor Phai</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a><br/>
+                                Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank" rel="noopener noreferrer">Freepik </a> 
+                                    from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a><br/>
+                                Icons made by <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev" target="_blank" rel="noopener noreferrer">
+                                    Nikita Golubev</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a>
                             </p>                            
                         </div>
 

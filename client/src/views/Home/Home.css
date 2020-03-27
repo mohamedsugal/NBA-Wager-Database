@@ -101,6 +101,14 @@ margin-top: 90px;
     padding: 5px 20px; 
 }
 
+.columns-btn a {
+    color: #fff; 
+}
+
+.columns-btn a:hover {
+    text-decoration: none;
+}
+
 .columns-btn:not(:disabled):not(.disabled):active {
     background-color: #1d428a;
     border: 0; 
@@ -119,30 +127,31 @@ margin-top: 90px;
 
 /*--------------- JUMBOTEXT BUTTON ---------------------*/
 .hero-btn {
-    
     float: right; 
-    background-color: #007bff;
+    background-color: #0F8175;
     border-color:#fff; 
     border: 0; 
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     padding: 10px 20px; 
     font-weight: 600;
 }
 
+
+
 .hero-btn:not(:disabled):not(.disabled):active {
-    background-color: #007bff;
+    background-color: #0F8175;
     border: 0; 
 }
 
 .hero-btn:focus {
-    background-color: #007bff;
+    background-color: #0F8175;
     border: 0; 
     box-shadow: none;
 }
 
 .hero-btn:hover {
-    background-color: #0063cc;
+    background-color: #03695E;
     border: 0;
 }

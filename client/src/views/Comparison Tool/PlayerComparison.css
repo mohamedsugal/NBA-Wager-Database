@@ -1,3 +1,20 @@
 body {
     margin: 0;
 }
+
+.recharts-wrapper {
+    margin: auto !important; 
+    margin-bottom: 3em !important;
+    margin-top: 2em !important;
+}
+
+.recharts-legend-wrapper {
+    position: relative !important;
+}
+
+.comparison-table {
+    margin-bottom: 3em;
+}
+
+
+
