@@ -1,127 +1,111 @@
-import React ,{ useState, useEffect } from "react"
-import {RadarChart,PolarGrid,PolarAngleAxis,PolarRadiusAxis,Radar,Legend} from 'recharts'
+import React from 'react';
+import {BarChart,CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar} from 'recharts'
+import './Dvi.css';
+import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table'
-import Container from 'react-bootstrap/Container'
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-//A = player 1 , B = player 2
+
 const data = [
     {
-      "stat": "Points",
-      "A": 120,
-      "B": 110,
-      "max": 150
+      "name": "Page A",
+      "uv": 4000,
+      "pv": 2400
     },
     {
-      "stat": "Passes",
-      "A": 98,
-      "B": 130,
-      "max": 150
+      "name": "Page B",
+      "uv": 3000,
+      "pv": 1398
     },
     {
-      "stat": "Assists",
-      "A": 86,
-      "B": 130,
-      "max": 150
+      "name": "Page C",
+      "uv": 2000,
+      "pv": 9800
     },
     {
-      "stat": "Steals",
-      "A": 99,
-      "B": 100,
-      "max": 150
+      "name": "Page D",
+      "uv": 2780,
+      "pv": 3908
     },
     {
-      "stat": "Blocks",
-      "A": 85,
-      "B": 90,
-      "max": 150
+      "name": "Page E",
+      "uv": 1890,
+      "pv": 4800
     },
     {
-      "stat": "Games",
-      "A": 65,
-      "B": 85,
-      "max": 150
+      "name": "Page F",
+      "uv": 2390,
+      "pv": 3800
+    },
+    {
+      "name": "Page G",
+      "uv": 3490,
+      "pv": 4300
     }
   ]
-function Home() {
 
-    const [playername, setPlayername] = useState("");
-    const [dob, setDob] = useState("");
-    const [weight, setWeight] = useState("");
-    const [height, setHeight] = useState("");
-    const [college, setCollege] = useState("");
-    const [teams, setTeams] = useState("");
-
-    const handleClick = async (event) => {
-       
-        //set variables from the table to the state here
-    }
-
+function Dvi() {
     return (
         <div className="App">
-            
-            <RadarChart outerRadius={90} width={730} height={250} data={data}>
-                <PolarGrid />
-                    <PolarAngleAxis dataKey="stat" />
-                    <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                    <Radar name="Player 1" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                    <Radar name="Player 2" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6} />
-                <Legend />
-            </RadarChart>
-            
-            <Container>
-                <Row>
-                    <Col>
-                        <Table striped bordered hover>
-                            <thead>
-                                <tr>
-                                <th>Name</th>
-                                <th>DOB</th>
-                                <th>Weight</th>
-                                <th>Height</th>
-                                <th>College</th>
-                                <th>Team(s)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
 
-                    <Col>
-                        <Table striped bordered hover>
-                            <thead>
-                                <tr>
-                                <th>Name</th>
-                                <th>DOB</th>
-                                <th>Weight</th>
-                                <th>Height</th>
-                                <th>College</th>
-                                <th>Team(s)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </Col>
-                    
-                </Row>
+            <Container fluid >
+                <BarChart width={1500} height={250} data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="pv" fill="#8884d8" />
+                    <Bar dataKey="uv" fill="#82ca9d" />
+                </BarChart>
+            </Container>  
+
+            <Container>
+                <Table responsive>
+                    <thead>
+                        <tr>
+                        <th>#</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        <th>Table heading</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>1</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        </tr>
+                        <tr>
+                        <td>2</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        </tr>
+                        <tr>
+                        <td>3</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        </tr>
+                    </tbody>
+                </Table>
             </Container>
+            
 
         </div>
     );
 }
 
-export default Home;
+export default Dvi;
