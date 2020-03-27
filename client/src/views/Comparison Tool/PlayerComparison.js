@@ -79,8 +79,8 @@ function PlayerComparison() {
           <Radar
             name="Player 2"
             dataKey="B"
-            stroke="#93ECDA"
-            fill="#93ECDA"
+            stroke="#82ca9d"
+            fill="#82ca9d"
             fillOpacity={0.6}
           />
           <Legend />
