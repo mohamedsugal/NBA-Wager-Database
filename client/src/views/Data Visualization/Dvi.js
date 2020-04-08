@@ -4,6 +4,8 @@ import './Dvi.css';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table'
 
+
+
 const data = [
     {
       "name": "Page A",

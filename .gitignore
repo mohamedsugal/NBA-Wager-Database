@@ -54,3 +54,4 @@ yarn-error.log*
 
 # User-specific stuff
 .idea/*
+server/config/dbconfig.js
