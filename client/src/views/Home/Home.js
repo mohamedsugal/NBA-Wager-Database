@@ -4,7 +4,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import Jumbo from "./nba_ball.jpg";
+import Jumbo from "./hero_image.jpg";
 import visualizationIcon from "./visual.png"; 
 import comparePlayer from "./compare-player.png"; 
 import team from "./team.png"; 
@@ -35,10 +35,14 @@ function Home() {
               Compare teams, check player stats, and bet on your favorite team
             </p>
           </Row>
+
           <Row>
           <AnchorLink offset='90' href='#visualization'><Button className="hero-btn">Start here</Button></AnchorLink>
-
           </Row>
+          
+        </Container >
+        <Container className="container-fluid royalty">
+          <p className="text-right text-white">Royalty-free stock photo ID: 1508680433</p>
         </Container>
       </Jumbotron>
       
