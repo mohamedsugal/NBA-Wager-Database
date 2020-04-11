@@ -53,7 +53,7 @@ body {
 }
 
 .jumbotext .row p {
-    font-weight: 200;
+    font-weight: 300;
     font-size: 20px;
 }
 
@@ -62,7 +62,8 @@ body {
 }
 
 .jumbotext h1 {
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 3em;
 }
 
 
