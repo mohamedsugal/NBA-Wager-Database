@@ -10,8 +10,8 @@ async function run() {
 
   try {
     connection = await oracledb.getConnection(  {
-        user          : "*",
-        password      : "*",
+        user          : "mohamed",
+        password      : "dajiya18",
         connectString : "oracle.cise.ufl.edu:1521/orcl"
     });
 
