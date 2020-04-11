@@ -16,8 +16,8 @@ async function run() {
     });
 
     const result = await connection.execute(
-      `SELECT NAME
-       FROM AIRPORT`
+      `SELECT Name 
+      FROM dferrer.player`
       
     );
     console.log(result.rows);
