@@ -1,54 +1,46 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {BarChart,CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar} from 'recharts'
 import './Dvi.css';
-import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button'
 
 
-
-const data = [
-    {
-      "name": "Page A",
-      "uv": 4000,
-      "pv": 2400
-    },
-    {
-      "name": "Page B",
-      "uv": 3000,
-      "pv": 1398
-    },
-    {
-      "name": "Page C",
-      "uv": 2000,
-      "pv": 9800
-    },
-    {
-      "name": "Page D",
-      "uv": 2780,
-      "pv": 3908
-    },
-    {
-      "name": "Page E",
-      "uv": 1890,
-      "pv": 4800
-    },
-    {
-      "name": "Page F",
-      "uv": 2390,
-      "pv": 3800
-    },
-    {
-      "name": "Page G",
-      "uv": 3490,
-      "pv": 4300
-    }
-  ]
 
 function Dvi() {
+    
+  const [data, setData] = useState({rows:[]});
+  const [loading, setLoading] = useState(true);
+  async function fetchUrl(url) {
+
+     const response = await fetch(url);
+     const json = await response.json();
+     setData(json);
+     setLoading(false);
+      
+    }
+
+    useEffect(() => {
+      fetchUrl();
+    }, []);
+
+    
+    
+    let rows = data.rows.map(row => 
+    <tr>
+    <td>{row.NAME}</td>
+    <td>{row.WEIGHT}</td>
+    <td>{row.HEIGHT}</td>
+    <td>{row.COLLEGE}</td>
+    <td>{row.POSITION}</td>
+    </tr>)
+
     return (
+        
+
         <div className="App">
             <Container fluid className="table-graph">
-                <BarChart width={1100} height={350} data={data}>
+                <BarChart width={1100} height={350}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
@@ -59,54 +51,33 @@ function Dvi() {
                 </BarChart>
             </Container>  
 
-            <Container className="table-data">
+            <Container className="table-data" >
+              <Button onClick = {()=> fetchUrl('http://localhost:5000/players')}>
+
+              </Button>
                 <Table responsive>
                     <thead>
                         <tr>
-                        <th>#</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
+                        <th>Name</th>
+                        <th>Weight</th>
+                        <th>Height</th>
+                        <th>College</th>
+                        <th>Position</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        </tr>
+                      {rows}
                     </tbody>
+
                 </Table>
             </Container>
-            
 
         </div>
     );
+  
 }
+
+
 
 export default Dvi;
