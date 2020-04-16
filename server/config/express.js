@@ -19,6 +19,8 @@ module.exports.init = () => {
     const app = express();
     let connection;
     let players;
+    let bookies;
+    let custom;
     
     async function run() {
 
@@ -34,7 +36,15 @@ module.exports.init = () => {
             FROM dferrer.player`
           );
 
+          bookies = await connection.execute(
+            `SELECT *
+            FROM dferrer.bookie`
+          );
+
+          
+
           players = JSON.parse(players.rows);
+          bookie = JSON.parse(player.JSON)
 
 
         } catch (err) {
@@ -62,6 +72,21 @@ module.exports.init = () => {
         res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
         return res.send(players);
     })
+    app.get('/bookies',(req,res)=>{
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+      return res.send(bookies);
+  })
+    //this is where the dynamic query from the front end will be recieved
+    app.get('/custom',(req,res)=>{
+      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+     
+
+      custom = JSON.parse(custom.JSON);
+
+      return res.send(custom);
+  })
+
+
 
     if (process.env.NODE_ENV === 'production') {
         // Serve any static files
