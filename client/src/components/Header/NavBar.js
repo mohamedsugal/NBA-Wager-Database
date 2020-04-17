@@ -34,9 +34,14 @@ const NavBar = () => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
+          <li className="nav-item active">
+              <Link className="nav-link" to="/DummyPlayer">
+                DummyPlayer
+              </Link>
+            </li>
             <li className="nav-item active">
-              <Link className="nav-link" to="/Home">
-                Home <span className="sr-only">(current)</span>
+              <Link className="nav-link" to="/Players">
+                Players
               </Link>
             </li>
             <li className="nav-item">
