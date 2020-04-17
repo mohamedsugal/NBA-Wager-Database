@@ -1,4 +1,4 @@
-require('dotenv').config()
++require('dotenv').config()
 const path = require('path'),
     express = require('express'),
     mongoose = require('mongoose'),
@@ -26,19 +26,16 @@ module.exports.init = () => {
 
         try {
           connection = await oracledb.getConnection(  {
-              user          : "dferrer",
-              password      : process.env.NODE_ORACLEDB_PASSWORD,
-              connectString : "oracle.cise.ufl.edu:1521/orcl"
+            user          : "dferrer",
+            password      : process.env.NODE_ORACLEDB_PASSWORD,
+            connectString : "oracle.cise.ufl.edu:1521/orcl"
           });
       
           players = await connection.execute(
             `SELECT name, player_id
             FROM dferrer.player
             ORDER BY NAME`
-            
           );
-
-          
 
           dummyPlayer = await connection.execute(
             `SELECT YEAR, 
