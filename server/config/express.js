@@ -1,4 +1,4 @@
-+require('dotenv').config()
+//+require('dotenv').config()
 const path = require('path'),
     express = require('express'),
     mongoose = require('mongoose'),
@@ -22,21 +22,23 @@ module.exports.init = () => {
     let players;
     let dummyPlayer;
     
-    async function run() {
+    async function run(playerid) {
 
         try {
           connection = await oracledb.getConnection(  {
-            user          : "dferrer",
-            password      : process.env.NODE_ORACLEDB_PASSWORD,
+            user          : "*",
+            password      : "*",
             connectString : "oracle.cise.ufl.edu:1521/orcl"
           });
       
           players = await connection.execute(
             `SELECT name, player_id
             FROM dferrer.player
+            WHERE rownum <= 10
             ORDER BY NAME`
           );
 
+          //an example of passing a variable to the query
           dummyPlayer = await connection.execute(
             `SELECT YEAR, 
             Player_name, 
@@ -48,9 +50,9 @@ module.exports.init = () => {
             SUM(Assists) AS Total_Assists,
             SUM(Steals) AS Total_Steals
             FROM dferrer.player_game_stats
-            Where player_id = 893
+            Where player_id = :id
             GROUP BY YEAR, Player_name
-            ORDER BY Year ASC`
+            ORDER BY Year ASC`, {id: playerid}
           );
 
 
@@ -73,7 +75,7 @@ module.exports.init = () => {
         }
       }
     
-      run();
+      
     
     // enable request logging for development debugging
     app.use(morgan('dev'));
@@ -82,12 +84,13 @@ module.exports.init = () => {
     //app.use(bodyParser.json());
 
     app.get('/players',(req,res)=>{
-        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+        run();
         return res.send(players);
     })
 
     app.get('/dummyPlayer',(req,res)=>{
-      res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+      // run the query by passing in the variable
+      run(req.query.playerid);
       return res.send(dummyPlayer);
   })
 

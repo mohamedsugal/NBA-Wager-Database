@@ -10,27 +10,63 @@ import Button from 'react-bootstrap/Button';
 function DummyPlayer() {
     
   const [data, setData] = useState({rows:[]});
+  const [playerdata,setPlayerdata] = useState({rows:[]});
   const [loading, setLoading] = useState(true);
+  const [currentplayerid,setCurrentplayerid] = useState({});
+
+//create a state for the variables that you want to change and update
+
+//a string since the data key from the chart is a string
+  const [currentdataKey,setCurrentdatakey] = useState("");
+
   async function fetchUrl() {
 
-     const response = await fetch('http://localhost:5000/dummyPlayer');
+     const response = await fetch("/players");
      const json = await response.json();
-     setData(json);
+     setPlayerdata(json);
      setLoading(true);
-      
+    
     }
 
     useEffect(() => {
-      fetchUrl();
-    }, []);
+        fetchUrl();
+        }, []);
 
 
-    let rows = data.rows.map(row => 
-    <tr>
-    <td>{row.PLAYER_NAME}</td>
+
+
+//this function is called when one of the buttons are clicked and accepts the datakey as a string 
+  function handlekeySelection (selection){
+
+    //the string passed in gets set to the state and should update the chart
+    setCurrentdatakey(selection);
+  }
+
+
+  async function getData(playerDat)
+  {
+    console.log(playerDat);
+    setCurrentplayerid(playerDat.PLAYER_ID);
+    getQuery();
+  }
+
+  async function getQuery()
+  {
+    const response = await fetch("/dummyPlayer?playerid="+currentplayerid);
+    const json = await response.json();
+    setData(json);
+    setLoading(true);
+    
+  }
+   
+
+
+    let rows = playerdata.rows.map(row => 
+    <tr onClick = {() => getData(row)}>
+    <td>{row.NAME}</td>
      </tr>)
 
-    
+
 
     /*<Container>
                 <LineChart width = {600} height = {300} data = {data}>
@@ -54,19 +90,25 @@ function DummyPlayer() {
                     </thead>
 
                     <tbody>
-                        {rows[0]} 
+                        {rows} 
                     </tbody>
                 </Table>
             </Container>
 
             <Container>
                 <LineChart width = {600} height = {300} data = {data.rows} >
-                    <Line type = "monotone" dataKey = "TOTAL_POINTS" stroke = "#8884d8"/>
+                    <Line type = "monotone" dataKey = {currentdataKey} stroke = "#8884d8"/>
                     <CartesianGrid stroke = "#ccc" strokeDasharray = " 5 5"/>
                     <XAxis dataKey = "YEAR"/>
                     <YAxis />
                     <Tooltip />
                 </LineChart>
+                <Button onClick = {()=> handlekeySelection("TOTAL_POINTS")}>Total Points</Button>
+                <Button onClick = {()=> handlekeySelection("AVG_POINTS")}>Avg Points</Button>
+                <Button onClick = {()=> handlekeySelection("TOTAL_BLOCKS")}>Total Blocks</Button>
+                <Button onClick = {()=> handlekeySelection("TOTAL_ASSISTS")}>Total Assists</Button>
+
+                <Button onClick = {()=> fetchUrl()}>Fetch Players</Button>
             </Container>
 
             

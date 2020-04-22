@@ -25,6 +25,7 @@ function Dvi() {
       
     }
 
+    /*
     async function fetchCustom(url) {
 
       const res = await fetch (url)
@@ -32,10 +33,10 @@ function Dvi() {
         setCustomdata(json);
 
      }
-
+*/
 
      //calling the fetchcustom for testing purposes
-     fetchCustom('http://localhost:5000/custom?query={queryexample}')
+     //fetchCustom('http://localhost:5000/custom?query={queryexample}')
 
   //get data based on which row the user clicked and set the state for use
   function getData(playerData)
@@ -75,7 +76,7 @@ function Dvi() {
             </Container>  
 
             <Container className="table-data" >
-              <Button onClick = {()=> fetchUrl('http://localhost:5000/players')}>
+              <Button onClick = {()=> fetchUrl('/players')}>
 
               </Button>
                 <Table responsive>
