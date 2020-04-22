@@ -76,6 +76,7 @@ module.exports.init = () => {
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
       return res.send(bookies);
   })
+  /*
     //this is where the dynamic query from the front end will be recieved
     app.get('/custom',(req,res)=>{
       res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
@@ -85,7 +86,7 @@ module.exports.init = () => {
 
       return res.send(custom);
   })
-
+*/
 
 
     if (process.env.NODE_ENV === 'production') {
