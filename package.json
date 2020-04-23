@@ -21,6 +21,8 @@
   "author": "Dakota Rennemann",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
@@ -33,7 +35,7 @@
     "nodemon": "^1.18.10",
     "oracledb": "^4.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
-    "react-bootstrap": "^1.0.0-beta.17",
+    "react-bootstrap": "^1.0.1",
     "recharts": "^1.8.5",
     "should": "^13.2.3",
     "supertest": "^4.0.2"
@@ -42,5 +44,4 @@
   "devDependencies": {
     "json-loader": "^0.5.7"
   }
-  
 }
