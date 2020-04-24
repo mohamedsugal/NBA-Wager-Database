@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  LineChart,Line,CartesianGrid,XAxis,YAxis,ZAxis,Tooltip,Scatter,Legend
+  LineChart,Line,CartesianGrid,XAxis,YAxis,ZAxis,Tooltip,Scatter,Legend,Brush
 } from "recharts";
 
 import Container from "react-bootstrap/Container";
@@ -23,6 +23,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableHead from '@material-ui/core/TableHead';
+
 
 import Grid from '@material-ui/core/Grid';
 
@@ -129,11 +130,18 @@ function PlayerComparison() {
    
    }
 
-   async function getStats(id,int)
+   async function getStats(id,int,string)
    {
-     
+     let json;
+     if(string === "players"){
      const response = await fetch("/playerStats?playerid="+id);
-     const json = await response.json();
+      json = await response.json();
+    }
+     if(string === "teams"){
+     const response = await fetch("/teamPoints?teamid="+id);
+      json = await response.json();
+    }
+     
      
      if(int === 1)
      setstat1Data(json);
@@ -144,20 +152,34 @@ function PlayerComparison() {
    
  
    //get data based on which row the user clicked and set the state for use
-   function getData(playerData,elementnum)
+   function getData(thisData,elementnum,string)
    {
 
-    if(elementnum === 1)
+    if(elementnum === 1 && string === "players")
     {
-      setCurrentelement1(playerData);
-      getStats(playerData.PLAYER_ID,1);
+      setCurrentelement1(thisData);
+      getStats(thisData.PLAYER_ID,1,string);
       
     }
 
-    if(elementnum === 2)
+    if(elementnum === 2 && string === "players")
     {
-      setCurrentelement2(playerData);
-      getStats(playerData.PLAYER_ID,2);
+      setCurrentelement2(thisData);
+      getStats(thisData.PLAYER_ID,2,string);
+      
+    }
+
+    if(elementnum === 1 && string === "teams")
+    {
+      setCurrentelement1(thisData);
+      getStats(thisData.TEAM_ID,1,string);
+      
+    }
+
+    if(elementnum === 2 && string === "teams")
+    {
+      setCurrentelement2(thisData);
+      getStats(thisData.TEAM_ID,2,string);
       
     }
  
@@ -226,7 +248,7 @@ if(display === "Players")
         <Line type="monotone" dataKey="AVG_POINTS" stroke="#8884d8" />
         <Line type="monotone" dataKey="TOTAL_BLOCKS" stroke="#82ca9d" />
         <Line type="monotone" dataKey="TOTAL_ASSISTS" stroke="#4554d8" />
-        
+        <Brush />
       </LineChart>
       <h1>{currentelement2.NAME}</h1>
       <LineChart width={730} height={250} data={statData2.rows}
@@ -239,6 +261,7 @@ if(display === "Players")
         <Line type="monotone" dataKey="AVG_POINTS" stroke="#8884d8" />
         <Line type="monotone" dataKey="TOTAL_BLOCKS" stroke="#82ca9d" />
         <Line type="monotone" dataKey="TOTAL_ASSISTS" stroke="#4554d8" />
+        <Brush />
       </LineChart>
       </Container>
 
@@ -265,7 +288,7 @@ if(display === "Players")
                         ? data.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         : data.rows
                       ).map((row) => (
-                        <TableRow key = {row.PLAYER_ID} onClick = {()=> getData(row,1)}>
+                        <TableRow key = {row.PLAYER_ID} onClick = {()=> getData(row,1,"players")}>
                           <TableCell align="left">{row.NAME}</TableCell>
                           <TableCell align="left">{row.POSITION}</TableCell>
                         </TableRow>
@@ -314,7 +337,7 @@ if(display === "Players")
                         ? data.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                         : data.rows
                       ).map((row) => (
-                        <TableRow key = {row.PLAYER_ID} onClick = {()=>getData(row,2)} >
+                        <TableRow key = {row.PLAYER_ID} onClick = {()=>getData(row,2,"players")} >
                           <TableCell align="left">{row.NAME}</TableCell>
                           <TableCell align="left">{row.POSITION}</TableCell>
                         </TableRow>
@@ -362,7 +385,32 @@ if(display === "Teams")
   
     <div className="App">
       <Container>
-        
+      <h1>{currentelement1.TEAM_NAME}</h1>
+      <LineChart width={730} height={250} data={statData1.rows}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="YEAR" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="TOTAL_POINTS" stroke="#8884d8" />
+        <Line type="monotone" dataKey="EFGPERCENT" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="ORBPERCENT" stroke="#4554d8" />
+        <Brush />
+      </LineChart>
+      <h1>{currentelement2.TEAM_NAME}</h1>
+      <LineChart width={730} height={250} data={statData2.rows}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="YEAR" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line type="monotone" dataKey="TOTAL_POINTS" stroke="#8884d8" />
+        <Line type="monotone" dataKey="EFGPERCENT" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="ORBPERCENT" stroke="#4554d8" />
+        <Brush />
+      </LineChart>
       </Container>
 
       <div className="container comparison-table">
@@ -390,7 +438,7 @@ if(display === "Teams")
                       ? data.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                       : data.rows
                     ).map((row) => (
-                      <TableRow key = {row.TEAM_ID}>
+                      <TableRow key = {row.TEAM_ID} onClick = {()=>getData(row,1,"teams")}>
                         <TableCell component="th" scope="row">
                           {row.TEAM_ID}
                         </TableCell>
@@ -444,7 +492,7 @@ if(display === "Teams")
                       ? data.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                       : data.rows
                     ).map((row) => (
-                      <TableRow key = {row.TEAM_ID}>
+                      <TableRow key = {row.TEAM_ID} onClick = {()=>getData(row,2,"teams")}>
                         <TableCell component="th" scope="row">
                           {row.TEAM_ID}
                         </TableCell>
