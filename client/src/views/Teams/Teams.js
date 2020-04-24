@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {LineChart,Line,BarChart,CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar} from 'recharts'
+import {AreaChart,Area, LineChart,Line,BarChart,CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar,Brush} from 'recharts'
 import './Teams.css';
 import Container from 'react-bootstrap/Container'
 
@@ -93,6 +93,8 @@ function Teams() {
     
   const [data, setData] = useState({rows:[]});
   const [statData, setstatData] = useState({rows:[]});
+  const [wlData, setWlData] = useState({rows:[]});
+  const [ipData, setIpData] = useState({rows:[]});
   const [loading, setLoading] = useState(true);
   const [currentTeam,setCurrentteam] = useState({});
   const [currentdataKey,setCurrentdatakey] = useState("");
@@ -137,17 +139,37 @@ function Teams() {
     const json = await response.json();
     setstatData(json);
     setLoading(true);
-    
+    console.log(response);
+     console.log(json);
+     console.log(statData.rows);
   }
 
-  /* here will go the other three queries as functions
+   
 
-  async function example(id)
+  async function getTeamWL(id)
   {
-  
-    
+    setLoading(true);
+    const response = await fetch("/teamWL?teamid="+id);
+    const json = await response.json();
+    setWlData(json);
+    setLoading(true);
+    console.log(response);
+     console.log(json);
+     console.log(wlData.rows);
   }
-  */
+
+  async function getImpliedProb(id)
+  {
+    setLoading(true);
+    const response = await fetch("/impliedProb?teamid="+id);
+    const json = await response.json();
+    setIpData(json);
+    setLoading(true);
+    console.log(response);
+     console.log(json);
+     console.log(ipData.rows);
+  }
+  
 
   //get data based on which row the user clicked and set the state for use
   // you could probably pass parameters here to specify which data you want to get in respect to the query options
@@ -155,7 +177,8 @@ function Teams() {
   {
     setCurrentteam(teamData);
     getPoints(teamData.TEAM_ID);
-
+    getTeamWL(teamData.TEAM_ID);
+    getImpliedProb(teamData.TEAM_ID);
   }
 
     useEffect(() => {
@@ -172,24 +195,52 @@ function Teams() {
               <Container>
                   <h1>{currentTeam.TEAM_NAME}</h1>
                   <h2>{currentdataKey}</h2>
-                  <LineChart width = {600} height = {300} data = {statData.rows} >
+                  <LineChart width = {800} height = {400} data = {statData.rows} >
                       <Line type = "monotone" dataKey = {currentdataKey} stroke = "#8884d8"/>
                       <CartesianGrid stroke = "#ccc" strokeDasharray = " 5 5"/>
-                      <XAxis dataKey = "Year"/>
+                      <XAxis dataKey = "YEAR"/>
                       <YAxis />
                       <Tooltip />
+                      <Brush/>
                   </LineChart>
-                  <Button onClick = {()=> handlekeySelection("Total_points")}>Total Points</Button>
+                  <Button onClick = {()=> handlekeySelection("TOTAL_POINTS")}>Total Points</Button>
+                  
                   
 
-                  <BarChart width = {600} height = {300} data = {statData.rows}>
+                  <BarChart width = {800} height = {400} data = {statData.rows}>
                           <CartesianGrid strokeDasharray = "3 3" />
-                          <XAxis dataKey = "Year"/>
+                          <XAxis dataKey = "YEAR"/>
                           <YAxis/>
                           <Tooltip/>
                           <Legend/>
-                          <Bar dataKey = "Total_points" fill = "#82ca9d" />
-                          
+                          <Brush/>
+                          <Bar dataKey = "EFG_PERCENT" fill = "#82ca9d" />
+                          <Bar dataKey = "TOV_PERCENT" fill = "#26ca9d" />
+                          <Bar dataKey = "ORB_PERCENT" fill = "#d8ff61" />
+                          <Bar dataKey = "DRB_PERCENT" fill = "#86a626" />
+                          <Bar dataKey = "FT_FACTOR" fill = "#86a626" />
+                 </BarChart>
+
+                 
+                  <AreaChart width = {800} height = {400} data = {wlData.rows} >
+                      <CartesianGrid stroke = "#ccc" strokeDasharray = " 5 5"/>
+                    
+                      <XAxis dataKey = "YEAR" />
+                      <YAxis />
+                      <Tooltip />
+                      <Brush/>
+                      <Area type = 'monotone' dataKey = "WINS"  stroke = "#82ca9d" fill = "#82ca9d"/>
+                      <Area type = 'monotone' dataKey = "LOSSES"  stroke = "#8884d8" fill = "#8884d8"/>
+                  </AreaChart>
+
+                  <BarChart width = {800} height = {400} data = {ipData.rows}>
+                          <CartesianGrid strokeDasharray = "3 3" />
+                          <XAxis dataKey = "YEAR"/>
+                          <YAxis/>
+                          <Tooltip/>
+                          <Legend/>
+                          <Brush/>
+                          <Bar dataKey = "IMPLIED_PROBABILITY_OF_WINNING" fill = "#82ca9d" />
                  </BarChart>
               </Container>
           </Row>
@@ -197,7 +248,7 @@ function Teams() {
 
           
               <TableContainer component={Paper}>
-                <Button onClick = {()=> fetchUrl('/Teams')}>Load</Button>
+                <Button onClick = {()=> fetchUrl('/teams')}>Load</Button>
                 <Table  size="small" aria-label="simple table">
                   <TableHead>
                     <TableRow>

@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {LineChart,Line,BarChart,CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar} from 'recharts'
+import {LineChart,Line,BarChart,CartesianGrid,XAxis,YAxis,Tooltip,Legend,Bar, Brush} from 'recharts'
 import './Players.css';
 import Container from 'react-bootstrap/Container'
 
@@ -22,6 +22,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableHead from '@material-ui/core/TableHead';
 import Row from 'react-bootstrap/Row';
+
 
 
 const useStyles1 = makeStyles((theme) => ({
@@ -126,7 +127,7 @@ function Players() {
      const json = await response.json();
      setData(json);
      setLoading(false);
-      
+     
     }
 
   async function getStats(id)
@@ -136,7 +137,6 @@ function Players() {
     const json = await response.json();
     setstatData(json);
     setLoading(true);
-    
   }
 
   //get data based on which row the user clicked and set the state for use
@@ -161,27 +161,38 @@ function Players() {
               <Container>
                   <h1>{currentplayer.NAME}</h1>
                   <h2>{currentdataKey}</h2>
-                  <LineChart width = {600} height = {300} data = {statData.rows} >
-                      <Line type = "monotone" dataKey = {currentdataKey} stroke = "#8884d8"/>
+                  <LineChart width = {1000} height = {600} data = {statData.rows} >
                       <CartesianGrid stroke = "#ccc" strokeDasharray = " 5 5"/>
                       <XAxis dataKey = "YEAR"/>
                       <YAxis />
                       <Tooltip />
+                      <Line type = "monotone" dataKey = {currentdataKey} stroke = "#8884d8"/>
+                      <Brush />
                   </LineChart>
                   <Button onClick = {()=> handlekeySelection("TOTAL_POINTS")}>Total Points</Button>
                   <Button onClick = {()=> handlekeySelection("AVG_POINTS")}>Avg Points</Button>
                   <Button onClick = {()=> handlekeySelection("TOTAL_BLOCKS")}>Total Blocks</Button>
                   <Button onClick = {()=> handlekeySelection("TOTAL_ASSISTS")}>Total Assists</Button>
+                  <Button onClick = {()=> handlekeySelection("GAMESCORE")}>Game Score</Button>
 
-                  <BarChart width = {600} height = {300} data = {statData.rows}>
+                  <BarChart width = {1000} height = {600} data = {statData.rows}>
                           <CartesianGrid strokeDasharray = "3 3" />
                           <XAxis dataKey = "YEAR"/>
                           <YAxis/>
                           <Tooltip/>
                           <Legend/>
-                          <Bar dataKey = "TOTAL_ASSISTS" fill = "#82ca9d" />
-                          <Bar dataKey = "TOTAL_STEALS" fill = "#26ca9d" />
-                          <Bar dataKey = "TOTAL_BLOCKS" fill = "#4554d8"/>
+                          <Brush/>
+                          <Bar dataKey = "P2PERCENT" fill = "#82ca9d" />
+                          <Bar dataKey = "P3PERCENT" fill = "#26ca9d" />
+                          <Bar dataKey = "ASTPERCENT" fill = "#befc03"/>
+                          <Bar dataKey = "BLKPERCENT" fill = "#d8ff61"/>
+                          <Bar dataKey = "DRBPERCENT" fill = "#86a626"/>
+                          <Bar dataKey = "ORBPERCENT" fill = "#0004e0"/>
+                          <Bar dataKey = "EGFPERCENT" fill = "#7375f5"/>
+                          <Bar dataKey = "FTPERCENT" fill = "#8130b0"/>
+                          <Bar dataKey = "STLPERCENT" fill = "#46e3e8"/>
+                          <Bar dataKey = "TRBPERCENT" fill = "#64b1fa"/>
+                          <Bar dataKey = "TRBPERCENT" fill = "#97ff36"/>
                  </BarChart>
               </Container>
           </Row>
