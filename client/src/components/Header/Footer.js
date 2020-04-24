@@ -15,7 +15,8 @@ const Footer = () => {
                             <h6>Quick Menu</h6>
                             <ul className="list-unstyled">
                                 <Link className="nav-link" to="/Home"><li>> Home</li></Link>
-                                <Link className="nav-link" to="/Data Visualization"><li>> Data Visualization</li></Link>
+                                <Link className="nav-link" to="/Players"><li>> Players</li></Link>
+                                <Link className="nav-link" to="/Teams"><li>> Teams</li></Link>
                                 <Link className="nav-link" to="/Comparison Tool"><li>> Comparison Tool</li></Link>
                                 
                             </ul>

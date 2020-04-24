@@ -5,10 +5,10 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Jumbo from "./hero_image.jpg";
-import visualizationIcon from "./visual.png"; 
-import comparePlayer from "./compare-player.png"; 
-import team from "./team.png"; 
-import bookie from "./bookie.png"; 
+import players from "./compare-player.png"; 
+import comparePlayer from "./compareP.png"; 
+import compareTeam from "./team.png"; 
+import teams from "./teams.png"; 
 import { Link } from 'react-router-dom';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import CountUp from 'react-countup';
@@ -60,11 +60,11 @@ function Home() {
             <div class="col-lg-6 d-flex align-items-stretch" data-aos="fade-up">
               <div class="info-box">
                 {/* <i class="bx bx-map"></i> */}
-                <h3><img className="visIcon" src={visualizationIcon} alt=""/> Data Visualization</h3>
+                <h3><img className="visIcon" src={players} alt=""/> Players</h3>
                 <p>Complex visualizations that show a team or a player's performance over time. See which team
                   or player performed above or below average in a certain year.
                 </p>
-                <Button className="columns-btn"><Link to="/Data Visualization">Click Here</Link></Button>
+                <Button className="columns-btn"><Link to="/Players">Click Here</Link></Button>
               </div>
             </div>
 
@@ -82,7 +82,7 @@ function Home() {
             <div class="col-lg-6 d-flex align-items-stretch" data-aos="fade-up">
               <div class="info-box">
                 {/* <i class="bx bx-map"></i> */}
-                <h3><img className="visIcon" src={team} alt=""/> Compare Teams</h3>
+                <h3><img className="visIcon" src={compareTeam} alt=""/> Compare Teams</h3>
                 <p>Compare two teams in terms of points per game, assists, rebounds, free throws, 3-points, field, goals, 
                   and many more. See the overall shooting performance of each team. 
                 </p>
@@ -93,11 +93,11 @@ function Home() {
             <div class="col-lg-6 d-flex align-items-stretch" data-aos="fade-up">
               <div class="info-box">
                 {/* <i class="bx bx-map"></i> */}
-                <h3><img className="visIcon" src={bookie} alt=""/> Compare Bookie</h3>
-                <p>Don't bet on the wrong team and lose money. Compare bookie and see a visualization that predict which team could win the championship in a particular
-                  year. 
+                <h3><img className="visIcon" src={teams} alt=""/> Teams</h3>
+                <p>See the overall team stats, their total points, scores, and visualize the implied probability 
+                  of your favorite team winning the championship.
                 </p>
-                <Button className="columns-btn"><Link to="/Comparison Tool">Click Here</Link></Button>
+                <Button className="columns-btn"><Link to="/Teams">Click Here</Link></Button>
               </div>
             </div>
 
