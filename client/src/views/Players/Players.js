@@ -125,7 +125,7 @@ function Players() {
 
   async function fetchUrl(url) {
 
-     setLoading(true);
+     
      const response = await fetch(url);
      const json = await response.json();
      setData(json);
@@ -134,10 +134,9 @@ function Players() {
 
   async function getStats(id)
   {
-    setLoading(true);
+    
     const response = await fetch("/playerStats?playerid="+id);
     const json = await response.json();
-    await sleep(200);
     setstatData(json);
   }
 
@@ -145,7 +144,7 @@ function Players() {
   async function getData(playerData)
   {
     setCurrentplayer(playerData);
-    await sleep(200);
+    
     getStats(playerData.PLAYER_ID);
 
   }

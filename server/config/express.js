@@ -174,38 +174,38 @@ module.exports.init = () => {
     app.use(morgan('dev'));
 
   
-    app.get('/players',(req,res)=>{
-        run(0,"all");
+    app.get('/players',async(req,res)=>{
+        await run(0,"all");
         return res.send(players);
     })
     /*app.get('/bookies',(req,res)=>{
       return res.send(bookies);
   })*/
 
-    app.get('/playerStats',(req,res)=>{
+    app.get('/playerStats',async(req,res)=>{
       // run the query by passing in the variable
-      run(req.query.playerid,"playerStats");
+      await run(req.query.playerid,"playerStats");
       return res.send(playerStats);
   })
  
-    app.get('/teams',(req,res)=>{
-      run(0,"all");
+    app.get('/teams',async(req,res)=>{
+      await run(0,"all");
       return res.send(teams);
   })
 
-    app.get('/teamPoints',(req,res)=>{
+    app.get('/teamPoints',async (req,res)=>{
       // run the query by passing in the variable
-      run(req.query.teamid, "teamPoints");
+      await run(req.query.teamid, "teamPoints");
       return res.send(teamPoints);
     })
 
-    app.get('/teamWL', (req,res)=>{
-      run(req.query.teamid, "teamWL");
+    app.get('/teamWL', async(req,res)=>{
+      await run(req.query.teamid, "teamWL");
       return res.send(teamWL);
     })
 
-    app.get('/impliedProb', (req,res)=>{
-      run(req.query.teamid, "impliedProb");
+    app.get('/impliedProb', async (req,res)=>{
+      await run(req.query.teamid, "impliedProb");
       return res.send(impliedProb);
     })
 

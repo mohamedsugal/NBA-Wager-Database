@@ -123,7 +123,7 @@ function Teams() {
   
   async function fetchUrl(url) {
 
-     setLoading(true);
+    
      const response = await fetch(url);
      const json = await response.json();
      setData(json);
@@ -133,10 +133,9 @@ function Teams() {
   async function getPoints(id)
   {
     
-    setLoading(true);
     const response = await fetch("/teamPoints?teamid="+id);
     const json = await response.json();
-    await sleep(200);
+    
     setstatData(json);
   }
 
@@ -144,19 +143,17 @@ function Teams() {
 
   async function getTeamWL(id)
   {
-    setLoading(true);
     const response = await fetch("/teamWL?teamid="+id);
     const json = await response.json();
-    await sleep(200);
+    
     setWlData(json);
   }
 
   async function getImpliedProb(id)
   {
-    setLoading(true);
     const response = await fetch("/impliedProb?teamid="+id);
     const json = await response.json();
-    await sleep(200);
+    
     setIpData(json);
   }
   
@@ -168,11 +165,12 @@ function Teams() {
   async function getData(teamData)
   {
     setCurrentteam(teamData);
-    getPoints(teamData.TEAM_ID);
-    await sleep(200);
-    getTeamWL(teamData.TEAM_ID);
-    await sleep(200);
-    getImpliedProb(teamData.TEAM_ID);
+
+    await getPoints(teamData.TEAM_ID);
+    
+    await getTeamWL(teamData.TEAM_ID);
+    
+    await getImpliedProb(teamData.TEAM_ID);
   }
 
     useEffect(() => {

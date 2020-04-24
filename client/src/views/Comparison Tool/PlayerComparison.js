@@ -152,34 +152,34 @@ function PlayerComparison() {
    
  
    //get data based on which row the user clicked and set the state for use
-   function getData(thisData,elementnum,string)
+   async function getData(thisData,elementnum,string)
    {
 
     if(elementnum === 1 && string === "players")
     {
       setCurrentelement1(thisData);
-      getStats(thisData.PLAYER_ID,1,string);
+      await getStats(thisData.PLAYER_ID,1,string);
       
     }
 
     if(elementnum === 2 && string === "players")
     {
       setCurrentelement2(thisData);
-      getStats(thisData.PLAYER_ID,2,string);
+      await getStats(thisData.PLAYER_ID,2,string);
       
     }
 
     if(elementnum === 1 && string === "teams")
     {
       setCurrentelement1(thisData);
-      getStats(thisData.TEAM_ID,1,string);
+      await getStats(thisData.TEAM_ID,1,string);
       
     }
 
     if(elementnum === 2 && string === "teams")
     {
       setCurrentelement2(thisData);
-      getStats(thisData.TEAM_ID,2,string);
+      await getStats(thisData.TEAM_ID,2,string);
       
     }
  
@@ -394,8 +394,8 @@ if(display === "Teams")
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="TOTAL_POINTS" stroke="#8884d8" />
-        <Line type="monotone" dataKey="EFGPERCENT" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="ORBPERCENT" stroke="#4554d8" />
+        <Line type="monotone" dataKey="EFG_PERCENT" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="ORB_PERCENT" stroke="#4554d8" />
         <Brush />
       </LineChart>
       <h1>{currentelement2.TEAM_NAME}</h1>
@@ -407,8 +407,8 @@ if(display === "Teams")
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="TOTAL_POINTS" stroke="#8884d8" />
-        <Line type="monotone" dataKey="EFGPERCENT" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="ORBPERCENT" stroke="#4554d8" />
+        <Line type="monotone" dataKey="EFG_PERCENT" stroke="#82ca9d" />
+        <Line type="monotone" dataKey="ORB_PERCENT" stroke="#4554d8" />
         <Brush />
       </LineChart>
       </Container>
