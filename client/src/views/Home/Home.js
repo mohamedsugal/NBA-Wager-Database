@@ -1,5 +1,5 @@
 import React from "react";
-// import logo from '../../assets/logo.svg';
+import {useState,useEffect} from 'react';
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
@@ -10,11 +10,15 @@ import comparePlayer from "./compare-player.png";
 import team from "./team.png"; 
 import bookie from "./bookie.png"; 
 import { Link } from 'react-router-dom';
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import CountUp from 'react-countup';
+
 import "./Home.css";
 
+
+
 function Home() {
-  
+
   return (
     <div className="App">
       <Jumbotron
@@ -46,6 +50,8 @@ function Home() {
           <p className="text-right text-white">Royalty-free stock photo ID: 1508680433</p>
         </Container>
       </Jumbotron>
+
+      <CountUp end = {1888210} />
       
       <section id="visualization" class="visualization">
         <div class="container">
