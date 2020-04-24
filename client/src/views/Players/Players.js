@@ -119,14 +119,16 @@ function Players() {
     setCurrentdatakey(selection);
   }
 
-  
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   async function fetchUrl(url) {
 
      setLoading(true);
      const response = await fetch(url);
      const json = await response.json();
      setData(json);
-     setLoading(false);
      
     }
 
@@ -135,14 +137,15 @@ function Players() {
     setLoading(true);
     const response = await fetch("/playerStats?playerid="+id);
     const json = await response.json();
+    await sleep(200);
     setstatData(json);
-    setLoading(true);
   }
 
   //get data based on which row the user clicked and set the state for use
-  function getData(playerData)
+  async function getData(playerData)
   {
     setCurrentplayer(playerData);
+    await sleep(200);
     getStats(playerData.PLAYER_ID);
 
   }

@@ -37,6 +37,7 @@
     "oracledb": "^4.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-bootstrap": "^1.0.1",
+    "react-countup": "^4.3.3",
     "recharts": "^1.8.5",
     "should": "^13.2.3",
     "supertest": "^4.0.2"

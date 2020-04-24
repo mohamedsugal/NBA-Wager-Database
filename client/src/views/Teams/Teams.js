@@ -127,7 +127,6 @@ function Teams() {
      const response = await fetch(url);
      const json = await response.json();
      setData(json);
-     setLoading(false);
       
     }
 
@@ -137,11 +136,8 @@ function Teams() {
     setLoading(true);
     const response = await fetch("/teamPoints?teamid="+id);
     const json = await response.json();
+    await sleep(200);
     setstatData(json);
-    setLoading(true);
-    console.log(response);
-     console.log(json);
-     console.log(statData.rows);
   }
 
    
@@ -151,11 +147,8 @@ function Teams() {
     setLoading(true);
     const response = await fetch("/teamWL?teamid="+id);
     const json = await response.json();
+    await sleep(200);
     setWlData(json);
-    setLoading(true);
-    console.log(response);
-     console.log(json);
-     console.log(wlData.rows);
   }
 
   async function getImpliedProb(id)
@@ -163,21 +156,22 @@ function Teams() {
     setLoading(true);
     const response = await fetch("/impliedProb?teamid="+id);
     const json = await response.json();
+    await sleep(200);
     setIpData(json);
-    setLoading(true);
-    console.log(response);
-     console.log(json);
-     console.log(ipData.rows);
   }
   
-
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   //get data based on which row the user clicked and set the state for use
   // you could probably pass parameters here to specify which data you want to get in respect to the query options
-  function getData(teamData)
+  async function getData(teamData)
   {
     setCurrentteam(teamData);
     getPoints(teamData.TEAM_ID);
+    await sleep(200);
     getTeamWL(teamData.TEAM_ID);
+    await sleep(200);
     getImpliedProb(teamData.TEAM_ID);
   }
 

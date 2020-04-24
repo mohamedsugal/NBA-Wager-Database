@@ -31,8 +31,8 @@ module.exports.init = () => {
 
         try {
           connection = await oracledb.getConnection(  {
-              user          : "",
-              password      : "",
+              user          : "dferrer",
+              password      : "UFd2571857",
               connectString : "oracle.cise.ufl.edu:1521/orcl"
           });
           if(string === "all" || id === 0)
@@ -88,11 +88,11 @@ module.exports.init = () => {
           teamPoints = await connection.execute(
               `SELECT Year, 
                       SUM(Points) as Total_points,
-                      NVL(100*AVG((FG + 0.5 * P3)/NULLIF(FGA,0)),0) as eFGpercent,
-                      NVL((100*AVG(TOV/NULLIF(FGA + 0.44 * FTA + TOV,0))),0) as TOVpercent,
-                      NVL(100*AVG(ORB/(NULLIF(ORB + OppORB,0))), 0) as ORBpercent,
-                      NVL(100*AVG(DRB/(NULLIF(DRB + OppDRB,0))), 0) as DRBpercent,
-                      NVL(AVG(FT/NULLIF(FGA,0)),0) as FTfactor
+                      NVL(100*AVG((FG + 0.5 * P3)/NULLIF(FGA,0)),0) as eFG_percent,
+                      NVL((100*AVG(TOV/NULLIF(FGA + 0.44 * FTA + TOV,0))),0) as TOV_percent,
+                      NVL(100*AVG(ORB/(NULLIF(ORB + OppORB,0))), 0) as ORB_percent,
+                      NVL(100*AVG(DRB/(NULLIF(DRB + OppDRB,0))), 0) as DRB_percent,
+                      NVL(AVG(FT/NULLIF(FGA,0)),0) as FT_factor
               FROM
               (
                   SELECT m.SEASON_YEAR as Year,

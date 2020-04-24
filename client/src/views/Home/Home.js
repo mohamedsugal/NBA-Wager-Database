@@ -14,6 +14,7 @@ import AnchorLink from 'react-anchor-link-smooth-scroll'
 import "./Home.css";
 
 function Home() {
+  
   return (
     <div className="App">
       <Jumbotron
