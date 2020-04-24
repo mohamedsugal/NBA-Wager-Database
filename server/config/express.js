@@ -31,8 +31,8 @@ module.exports.init = () => {
 
         try {
           connection = await oracledb.getConnection(  {
-              user          : "dferrer",
-              password      : "UFd2571857",
+              user          : "",
+              password      : "",
               connectString : "oracle.cise.ufl.edu:1521/orcl"
           });
           if(string === "all" || id === 0)
