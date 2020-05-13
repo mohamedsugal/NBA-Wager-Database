@@ -1,16 +1,18 @@
 ## _**NBA-Wager&Stats-Database**_
-![NBA-Wager-Database Demo](Demo/NBA-Players.gif) 
+![NBA-Wager-Database Demo](Demo/NBA-Players.gif)
+## _***_
 ![NBA-Wager-Database Demo](Demo/NBA-Player-Comparison.gif) 
+## _***_
 ![NBA-Wager-Database Demo](Demo/NBA-Players.gif) 
+
+Built with Node.js, React.js, Express, node-oracledb, and a Oracle DB (PL/SQL)
 
 ## _**PLEASE READ THIS TO COMPLETION BEFORE ASKING ANY QUESTIONS!**_
 
 ### _**IMPORTANT NOTES**_ - 
-This project does not have a mongoDB connection setup. Setup the connection based on the environments below.
-- local development: create a config file (make sure to name it config.js) in the config folder, which exports your db.uri connection. An example is provided, config/config.example.js. This file will be ignored by git so your db credentials will be kept safe when the app is deployed.
-- production: Since the config file is not pushed when you deploy your app, you must specifiy your db uri in heorku. Set the uri in heroku as specified in [this](https://devcenter.heroku.com/articles/config-vars) resource. Make sure you name the environement variable "DB_URI".
+This project does not have a live website and you won't be able to run it locally without a vpn connection, and an oracle account provided by the CISE departement at the University of Florida.
 
-This project contains an example project board meant to showcase how one can be used. The issues posted to it are not real issues.
+This project contains all the code used in the development of this application, and core functionailities can be seen above.
 
 ## Getting Started
 This repository aims to assist you in beginning work on a MERN stack application for heroku deployment with a solid file structure as a foundation. To get started make a copy of this template repo for your project teams by clicking the green "Use this template" button above.
