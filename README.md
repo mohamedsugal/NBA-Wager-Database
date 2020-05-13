@@ -1,3 +1,5 @@
+## _**DEMO**_
+![NBA-Wager-Database Demo](Demo/NBA-Players.gif)
 ## _**PLEASE READ THIS TO COMPLETION BEFORE ASKING ANY QUESTIONS!**_
 
 ### _**IMPORTANT NOTES**_ - 
